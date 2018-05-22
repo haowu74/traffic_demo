@@ -18,10 +18,12 @@ namespace TrafficDemo.Views
     {
         ItemsViewModel viewModel;
 
+        public Query query { get; set; }
+
         public ItemsPage()
         {
             InitializeComponent();
-
+            query = new Query();
             BindingContext = viewModel = new ItemsViewModel();
         }
 
@@ -30,7 +32,7 @@ namespace TrafficDemo.Views
             var trip = args.SelectedItem as Trip;
             if (trip == null)
                 return;
-
+            
             await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(trip)));
 
             // Manually deselect item.
@@ -39,7 +41,7 @@ namespace TrafficDemo.Views
 
         async void AddItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
+            await Navigation.PushModalAsync(new NavigationPage(new QueryPage(this)));
         }
 
         protected override void OnAppearing()
@@ -47,7 +49,9 @@ namespace TrafficDemo.Views
             base.OnAppearing();
 
             if (viewModel.Trips.Count == 0)
-                viewModel.LoadItemsCommand.Execute(null);
+                viewModel.LoadItemsCommand.Execute(query);
         }
+
+
     }
 }

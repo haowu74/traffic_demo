@@ -19,11 +19,11 @@ namespace TrafficDemo.ViewModels
         {
             Title = "Browse";
             Trips = new ObservableCollection<Trip>();
-            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            LoadItemsCommand = new Command<Query>(async q => await ExecuteLoadItemsCommand(q));
 
             MessagingCenter.Subscribe<NewItemPage, Query>(this, "AddItem", async (obj, query) =>
             {
-                query = new Query
+                query = query ?? new Query
                 {
                     stop_id = "200054",
                     cur_time = "09:10:00",
@@ -37,13 +37,13 @@ namespace TrafficDemo.ViewModels
             });
         }
 
-        async Task ExecuteLoadItemsCommand()
+        async Task ExecuteLoadItemsCommand(Query q)
         {
             if (IsBusy)
                 return;
             
             IsBusy = true;
-            var query = new Query{
+            var query = q ?? new Query{
                 stop_id = "200054",
                 cur_time = "09:10:00",
                 day = "5"
