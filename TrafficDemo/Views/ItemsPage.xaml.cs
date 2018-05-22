@@ -19,6 +19,7 @@ namespace TrafficDemo.Views
         ItemsViewModel viewModel;
 
         public Query query { get; set; }
+        bool appeared = false;
 
         public ItemsPage()
         {
@@ -48,8 +49,11 @@ namespace TrafficDemo.Views
         {
             base.OnAppearing();
 
-            if (viewModel.Trips.Count == 0)
+            if (query.stop_id != null)
+            {
                 viewModel.LoadItemsCommand.Execute(query);
+            }
+
         }
 
 

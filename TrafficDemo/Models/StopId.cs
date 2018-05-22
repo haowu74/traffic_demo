@@ -4,6 +4,6 @@ namespace TrafficDemo.Models
     public enum StopId
     {
         Central = 200054,
-        UNSW = 200000
+        UNSW = 203220
     }
 }
