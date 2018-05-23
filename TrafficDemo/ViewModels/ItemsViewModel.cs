@@ -17,7 +17,7 @@ namespace TrafficDemo.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "Trip Demo";
             Trips = new ObservableCollection<Trip>();
             LoadItemsCommand = new Command<Query>(async q => await ExecuteLoadItemsCommand(q));
 
@@ -32,6 +32,7 @@ namespace TrafficDemo.ViewModels
                 var trips = await DataStore.PostTripsAsync(query);
                 foreach (var trip in trips)
                 {
+                    trip.route_id = (trip.route_id.Split('_'))[1];
                     Trips.Add(trip);
                 }
             });
@@ -54,6 +55,7 @@ namespace TrafficDemo.ViewModels
                 var trips = await DataStore.PostTripsAsync(query);
                 foreach (var trip in trips)
                 {
+                    trip.route_id = (trip.route_id.Split('_'))[1];
                     Trips.Add(trip);
                 }
             }

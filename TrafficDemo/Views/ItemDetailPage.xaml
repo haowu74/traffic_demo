@@ -2,10 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TrafficDemo.Views.ItemDetailPage" Title="{Binding Title}">
     <ScrollView>
         <StackLayout Spacing="20" Padding="15">
+            <!--
             <Label Text="{Binding Trip.trip_id, StringFormat='Trip Id: {0}'}" FontSize="Large" />
+            -->
             <Label Text="{Binding Trip.route_id, StringFormat='Route Id: {0}'}" FontSize="Large" />
             <Label Text="{Binding Trip.arrival_time, StringFormat='Arrival Time: {0}'}" FontSize="Small" />
             <Label Text="{Binding Trip.departure_time, StringFormat='Departure Time: {0}'}" FontSize="Small" />
+            <!--
             <Label Text="{Binding Trip.stop_id, StringFormat='Stop Id: {0}'}" FontSize="Small" />
             <Label Text="{Binding Trip.stop_sequence, StringFormat='Stop Sequence: {0}'}" FontSize="Small" />
             <Label Text="{Binding Trip.stop_headsign, StringFormat='Stop Headsign: {0}'}" FontSize="Small" />
@@ -22,6 +25,7 @@
             <Label Text="{Binding Trip.wheelchair_accessible, StringFormat='Wheelchair Accessible: {0}'}" FontSize="Small" />
             <Label Text="{Binding Trip.trip_note, StringFormat='Trip Note: {0}'}" FontSize="Small" />
             <Label Text="{Binding Trip.route_direction, StringFormat='Route Direction: {0}'}" FontSize="Small" />
+            -->
             <Label Text="{Binding Trip.congestion_level, StringFormat='Congestion Level: {0}'}" FontSize="Small" />
             <Label Text="{Binding Trip.occupancy_status, StringFormat='Occupancy Status: {0}'}" FontSize="Small" />
         </StackLayout> 
