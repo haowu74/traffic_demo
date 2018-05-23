@@ -38,7 +38,7 @@ namespace TrafficDemo.Views
         async void Search_Clicked(object sender, EventArgs e)
         {
             var day = ((int)this.date.Date.DayOfWeek).ToString();
-            var t = this.date.Date.ToString("hh:mm:ss");
+            var t = this.time.Time.ToString();
 
             var stop_num = (int)Enum.Parse(typeof(StopId), this.stop_id.Text);
 
