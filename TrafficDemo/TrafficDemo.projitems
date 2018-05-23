@@ -55,6 +55,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\StopListPage.xaml.cs">
       <DependentUpon>StopListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\CongestionLevel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\OccupancyLevel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MainPage.xaml">

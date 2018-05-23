@@ -20,7 +20,7 @@ namespace TrafficDemo.Views
 
         public Query query { get; set; }
         bool appeared = false;
-
+        public bool Search;
         public ItemsPage()
         {
             InitializeComponent();
@@ -48,7 +48,10 @@ namespace TrafficDemo.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
+            if(!Search){
+                return;
+            }
+            Search = false;
             if (query.stop_id != null)
             {
                 viewModel.LoadItemsCommand.Execute(query);

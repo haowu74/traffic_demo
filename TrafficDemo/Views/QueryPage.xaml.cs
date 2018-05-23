@@ -37,7 +37,7 @@ namespace TrafficDemo.Views
 
         async void Search_Clicked(object sender, EventArgs e)
         {
-            var day = ((int)this.date.Date.DayOfWeek).ToString();
+            var day = (((int)(this.date.Date.DayOfWeek)+6) % 7).ToString();
             var t = this.time.Time.ToString();
 
             var stop_num = (int)Enum.Parse(typeof(StopId), this.stop_id.Text);
@@ -47,6 +47,7 @@ namespace TrafficDemo.Views
             ((ItemsPage)page).query.stop_id = stop;
             ((ItemsPage)page).query.day = day;
             ((ItemsPage)page).query.cur_time = t;
+            ((ItemsPage)page).Search = true;
             await Navigation.PopModalAsync();
         }
 
